@@ -30,9 +30,9 @@ int main(int argc, char *argv[]) {
       isFirstGuess = false;
     else {
       if (guess < random)
-        printf("HINT: Too low!\n");
+        printf("HINT: Too low 🤔\n");
       else
-        printf("HINT: Too high!\n");
+        printf("HINT: Too high 🤔\n");
     }
 
     printf("Guess a number between %d..%d: ", MIN, MAX);
@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
   } while (guess != random);
 
   printf("\n---------------------------------\n");
-  printf("You won!\n");
+  printf("You won! 🥳\n");
 
   return 0;
 }
