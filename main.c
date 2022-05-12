@@ -10,14 +10,23 @@ int main(int argc, char *argv[]) {
 
   const int MIN = 1;
   const int MAX = 10;
+  const int LIMIT = 5;
 
   int random = randInRange(MIN, MAX);
   printf("HINT: %d is chosen.\n", random);
 
   int guess;
+  unsigned int counter;
 
   bool isFirstGuess = true;
   do {
+    if (counter > LIMIT) {
+      printf("\n---------------------------------\n");
+      printf("It was %d :(\n", random);
+
+      return 1;
+    }
+
     if (isFirstGuess)
       isFirstGuess = false;
     else {
@@ -29,6 +38,7 @@ int main(int argc, char *argv[]) {
 
     printf("Guess a number between %d..%d: ", MIN, MAX);
     scanf("%d", &guess);
+    counter++;
   } while (guess != random);
 
   printf("\n---------------------------------\n");
