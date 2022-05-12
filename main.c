@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
 
   const int MIN = 1;
   const int MAX = 10;
-  const int LIMIT = 5;
+  const int LIMIT = 3;
 
   int random = randInRange(MIN, MAX);
 
