@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -15,7 +16,17 @@ int main(int argc, char *argv[]) {
 
   int guess;
 
+  bool isFirstGuess = true;
   do {
+    if (isFirstGuess)
+      isFirstGuess = false;
+    else {
+      if (guess < random)
+        printf("HINT: Too low!\n");
+      else
+        printf("HINT: Too high!\n");
+    }
+
     printf("Guess a number between %d..%d: ", MIN, MAX);
     scanf("%d", &guess);
   } while (guess != random);
