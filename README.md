@@ -20,8 +20,9 @@ Clone this repo:
 git clone "https://github.com/utilyre/20q.git"
 ```
 
-Cd into the repo's directory and run the following command:
+Cd into the repo's directory and run the following commands:
 
 ```sh
+make
 ./20q
 ```
