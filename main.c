@@ -13,7 +13,6 @@ int main(int argc, char *argv[]) {
   const int LIMIT = 5;
 
   int random = randInRange(MIN, MAX);
-  printf("HINT: %d is chosen.\n", random);
 
   int guess;
   unsigned int counter;
