@@ -31,6 +31,9 @@ int main(int argc, char *argv[]) {
     scanf("%d", &guess);
   } while (guess != random);
 
+  printf("\n---------------------------------\n");
+  printf("You won!\n");
+
   return 0;
 }
 
