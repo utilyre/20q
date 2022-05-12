@@ -13,6 +13,13 @@ int main(int argc, char *argv[]) {
   int random = randInRange(MIN, MAX);
   printf("HINT: %d is chosen.\n", random);
 
+  int guess;
+
+  do {
+    printf("Guess a number between %d..%d: ", MIN, MAX);
+    scanf("%d", &guess);
+  } while (guess != random);
+
   return 0;
 }
 
