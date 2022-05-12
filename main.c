@@ -35,8 +35,13 @@ int main(int argc, char *argv[]) {
         printf("HINT: Too high 🤔\n");
     }
 
-    printf("Guess a number between %d..%d: ", MIN, MAX);
-    scanf("%d", &guess);
+    int input;
+    do {
+      printf("Guess a number between %d..%d: ", MIN, MAX);
+      scanf("%d", &input);
+    } while (input < MIN || input > MAX);
+    guess = input;
+
     counter++;
   } while (guess != random);
 
