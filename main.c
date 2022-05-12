@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
   bool isFirstGuess = true;
   do {
-    if (counter > LIMIT) {
+    if (counter >= LIMIT) {
       printf("\n---------------------------------\n");
       printf("It was %d :(\n", random);
 
