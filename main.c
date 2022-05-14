@@ -8,18 +8,17 @@ int randInRange(int min, int max);
 int main(int argc, char *argv[]) {
   srand(time(0));
 
+  const int LIVES = 3;
   const int MIN = 1;
   const int MAX = 10;
-  const int LIMIT = 3;
 
+  unsigned int remainingLives = LIVES;
   int random = randInRange(MIN, MAX);
-
   int guess;
-  unsigned int counter;
 
   bool isFirstGuess = true;
   do {
-    if (counter >= LIMIT) {
+    if (remainingLives <= 0) {
       printf("\n---------------------------------\n");
       printf("It was %d :(\n", random);
 
@@ -29,6 +28,15 @@ int main(int argc, char *argv[]) {
     if (isFirstGuess)
       isFirstGuess = false;
     else {
+      printf("\n");
+      for (int i = 0; i < LIVES; i++) {
+        if (i < remainingLives)
+          printf("❤️ ");
+        else
+          printf("💔");
+      }
+      printf("\n");
+
       if (guess < random)
         printf("HINT: Too low 🤔\n");
       else
@@ -42,7 +50,7 @@ int main(int argc, char *argv[]) {
     } while (input < MIN || input > MAX);
     guess = input;
 
-    counter++;
+    remainingLives--;
   } while (guess != random);
 
   printf("\n---------------------------------\n");
