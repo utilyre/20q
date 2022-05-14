@@ -45,14 +45,15 @@ int main(int argc, char *argv[]) {
       isFirstGuess = false;
     else {
       /* Gives the player a hint about how close he/she is */
+      int range = (MAX - MIN) / 4;
       int difference = guess - random;
 
       printf("HINT: ");
-      if (difference < -5)
+      if (difference < -range)
         printf("Too low");
       else if (difference < 0)
         printf("A bit low");
-      else if (difference > 5)
+      else if (difference > range)
         printf("Too high");
       else
         printf("A bit high");
