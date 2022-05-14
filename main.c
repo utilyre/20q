@@ -44,11 +44,19 @@ int main(int argc, char *argv[]) {
     if (isFirstGuess)
       isFirstGuess = false;
     else {
-      /* Tells the player wether if his/her guess was lower or higher */
-      if (guess < random)
-        printf("HINT: Too low 🤔\n");
+      /* Gives the player a hint about how close he/she is */
+      int difference = guess - random;
+
+      printf("HINT: ");
+      if (difference < -5)
+        printf("Too low");
+      else if (difference < 0)
+        printf("A bit low");
+      else if (difference > 5)
+        printf("Too high");
       else
-        printf("HINT: Too high 🤔\n");
+        printf("A bit high");
+      printf(" 🤔\n");
     }
 
     /* Prompts until the player gives a valid number
