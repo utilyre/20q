@@ -31,19 +31,19 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
+    /* Displays the current state of lives */
+    printf("\n");
+    for (int i = 0; i < LIVES; i++) {
+      if (i < remainingLives)
+        printf("❤️ ");
+      else
+        printf("💔");
+    }
+    printf("\n");
+
     if (isFirstGuess)
       isFirstGuess = false;
     else {
-      /* Displays the current state of lives */
-      printf("\n");
-      for (int i = 0; i < LIVES; i++) {
-        if (i < remainingLives)
-          printf("❤️ ");
-        else
-          printf("💔");
-      }
-      printf("\n");
-
       /* Tells the player wether if his/her guess was lower or higher */
       if (guess < random)
         printf("HINT: Too low 🤔\n");
