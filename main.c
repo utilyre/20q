@@ -98,5 +98,5 @@ void usage() {
   printf("\t-l lives\n"
          "\t\tDefines number of lives\n");
   printf("\t-r range\n"
-         "\t\tDefines random range (e.g. 1,10 means 1 through 10)\n");
+         "\t\tDefines random number's range (e.g. 1,10 means 1 through 10)\n");
 }
