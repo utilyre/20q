@@ -16,14 +16,14 @@ void usage();
 int main(int argc, char *argv[]) {
   srand(time(0));
 
-  /* Change these in order to modify game rules */
-  const int LIVES = 3;
-  const int MIN = 1;
-  const int MAX = 10;
+  /* Change these in order to modify game defaults */
+  int lives = 3;
+  int min = 1;
+  int max = 10;
 
   /* Game state */
-  unsigned int remainingLives = LIVES;
-  int random = randInRange(MIN, MAX);
+  unsigned int remainingLives = lives;
+  int random = randInRange(min, max);
   int guess;
 
   bool isFirstGuess = true;
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
 
     /* Displays the current state of lives */
     printf("\n");
-    for (int i = 0; i < LIVES; i++) {
+    for (int i = 0; i < lives; i++) {
       if (i < remainingLives)
         printf("❤️ ");
       else
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
       isFirstGuess = false;
     else {
       /* Gives the player a hint about how close he/she is */
-      int range = (MAX - MIN) / 4;
+      int range = (max - min) / 4;
       int difference = guess - random;
 
       printf("HINT: ");
@@ -69,9 +69,9 @@ int main(int argc, char *argv[]) {
     (between MIN and MAX constants) */
     int input;
     do {
-      printf("Guess a number between %d..%d: ", MIN, MAX);
+      printf("Guess a number between %d..%d: ", min, max);
       scanf("%d", &input);
-    } while (input < MIN || input > MAX);
+    } while (input < min || input > max);
     guess = input;
 
     /* Decrements remaining lives on each prompt */
