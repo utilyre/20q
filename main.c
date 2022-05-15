@@ -8,6 +8,11 @@
  */
 int randInRange(int min, int max);
 
+/**
+ * Prints usage to stdout
+ */
+void usage();
+
 int main(int argc, char *argv[]) {
   srand(time(0));
 
@@ -82,3 +87,16 @@ int main(int argc, char *argv[]) {
 }
 
 int randInRange(int min, int max) { return rand() % (max - min + 1) + min; }
+
+void usage() {
+  printf("SYNOPSIS\n"
+         "\t20q [-l lives] [-r range]\n");
+
+  printf("\n");
+
+  printf("OPTIONS\n");
+  printf("\t-l lives\n"
+         "\t\tDefines number of lives\n");
+  printf("\t-r range\n"
+         "\t\tDefines random range (e.g. 1,10 means 1 through 10)\n");
+}
