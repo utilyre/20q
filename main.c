@@ -4,6 +4,12 @@
 #include <time.h>
 
 typedef struct {
+  unsigned int lives;
+  int min;
+  int max;
+} Rules;
+
+typedef struct {
   unsigned int remainingLives;
   int random;
   int guess;
@@ -23,14 +29,16 @@ int main(int argc, char *argv[]) {
   srand(time(0));
 
   /* Change these in order to modify game defaults */
-  int lives = 3;
-  int min = 1;
-  int max = 10;
+  Rules rules = {
+    3, /* Lives */
+    1, /* Random minimum */
+    10, /* Random maximum */
+  };
 
   /* Game state */
   State state = {
-      lives, /* Remaining lives */
-      randInRange(min, max), /* Random */
+      rules.lives, /* Remaining lives */
+      randInRange(rules.min, rules.max), /* Random */
   };
 
   bool isFirstGuess = true;
@@ -45,7 +53,7 @@ int main(int argc, char *argv[]) {
 
     /* Displays the current state of lives */
     printf("\n");
-    for (int i = 0; i < lives; i++) {
+    for (int i = 0; i < rules.lives; i++) {
       if (i < state.remainingLives)
         printf("❤️ ");
       else
@@ -57,7 +65,7 @@ int main(int argc, char *argv[]) {
       isFirstGuess = false;
     else {
       /* Gives the player a hint about how close he/she is */
-      int range = (max - min) / 4;
+      int range = (rules.max - rules.min) / 4;
       int difference = state.guess - state.random;
 
       printf("HINT: ");
@@ -76,9 +84,9 @@ int main(int argc, char *argv[]) {
     (between MIN and MAX constants) */
     int input;
     do {
-      printf("Guess a number between %d..%d: ", min, max);
+      printf("Guess a number between %d..%d: ", rules.min, rules.max);
       scanf("%d", &input);
-    } while (input < min || input > max);
+    } while (input < rules.min || input > rules.max);
     state.guess = input;
 
     /* Decrements remaining lives on each prompt */
