@@ -30,14 +30,14 @@ int main(int argc, char *argv[]) {
 
   /* Change these in order to modify game defaults */
   Rules rules = {
-    3, /* Lives */
-    1, /* Random minimum */
-    10, /* Random maximum */
+      3,  /* Lives */
+      1,  /* Random minimum */
+      10, /* Random maximum */
   };
 
   /* Game state */
   State state = {
-      rules.lives, /* Remaining lives */
+      rules.lives,                       /* Remaining lives */
       randInRange(rules.min, rules.max), /* Random */
   };
 
